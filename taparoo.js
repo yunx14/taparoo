@@ -53,11 +53,11 @@ var Taparoo = (function() {
 	};
 
 	Player.prototype.init = function() {
-		if ('ontouchstart' in document.documentElement) {
+		// if ('ontouchstart' in document.documentElement) {
 			addEvent(this.tapArea, 'touchend', bind(this, this.addTap), false);
-		} else {
-			addEvent(this.tapArea, 'click', bind(this, this.addTap), false);
-		}
+		// } else {
+		// 	addEvent(this.tapArea, 'click', bind(this, this.addTap), false);
+		// }
 		addEvent(this.tapArea, 'click', calculateClicks, false);
 	}
 
