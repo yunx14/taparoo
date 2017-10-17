@@ -1,0 +1,33 @@
+html,
+body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+.player {
+	width: 100%;
+	height: 50%;
+	background-color: #ff0000;
+}
+
+.player:first-child {
+	background-color: #00ff00;
+}
+
+.tap {
+	width: 24px;
+	height: 24px;
+	border-radius: 50%;
+	border: 1px solid #0000ff;
+	background-color: #ffffff;
+	margin: 0 auto;
+	position: absolute;
+	bottom: 24px;
+	left: 49%;
+}
+
+.player:first-child .tap {
+	top: 24px;
+}
