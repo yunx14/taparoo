@@ -58,7 +58,7 @@ var Taparoo = (function() {
 		// } else {
 		// 	addEvent(this.tapArea, 'click', bind(this, this.addTap), false);
 		// }
-		addEvent(this.tapArea, 'click', calculateClicks, false);
+		addEvent(this.tapArea, 'touchstart', calculateClicks, false);
 	}
 
 	return {
