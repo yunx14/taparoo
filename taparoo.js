@@ -24,15 +24,33 @@ var Taparoo = (function() {
 		console.log(p1Elem, p2Elem);
 	}
 
+	function refreshPage() {
+		location.reload();
+	}
+
 	function calculateClicks() {
 		var diff = p1Elem.taps - p2Elem.taps;
 
 		p1Elem.elem.style.height =  ((diff * 10) + height) + "%";
 		p2Elem.elem.style.height = (100 - ((diff * 10) + height)) + "%";
 
-		if (p1Elem.elem.style.height == "100%" || p2Elem.elem.style.height == "100%") {
-			alert("the game is over");
+		if (p1Elem.elem.style.height == "100%") {
+			gameOver(p1Elem.name);
+		} else if (p2Elem.elem.style.height == "100%") {
+			gameOver(p2Elem.name);
 		}
+	}
+
+	function gameOver(winner) {
+		var overlay = document.getElementById("overlay");
+		var overlayP = document.getElementById("winner");
+		var overlayText = winner + " Wins! <br><br> Rematch!" ;
+
+		overlayP.innerHTML = overlayText;
+		addEvent(overlayP, "click", refreshPage);
+		overlay.style.display = "flex";
+		overlayP.style.display = "flex";
+
 	}
 
 	var Player = function(elem) {
@@ -66,5 +84,3 @@ var Taparoo = (function() {
 		readPlayers: readPlayers
 	}
 })();
-
-Taparoo.init("player1", "player2");
